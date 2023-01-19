@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Finder</title>
+    <link rel="stylesheet" href="styles/form_style.css">
+</head>
+<body>
+    <script type="text/javascript" src="javascript/rooms.js"></script>
+    <script type="text/javascript" src="javascript/query.js"></script>
+
+    <h1>Rutgers Room Finder</h1>
+    <form id="form">
+        <ul>
+            <li>
+                <label for="day">Day:</label>
+                <select name="day" id="day">
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                </select>
+            </li>
+            <li>
+                <label for="start">Start Time:</label>
+                <input type="time" name="start" id="start">
+            </li>
+            <li>
+                <label for="end">End Time:</label>
+                <input type="time" name="end" id="end">
+            </li>
+            <li class="button">
+                <button type="submit">Find Rooms</button>
+            </li>
+        </ul>
+    </form>
+
+    <div id="results"></div>
+</body>
+</html>
