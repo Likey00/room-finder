@@ -18,13 +18,23 @@ function processForm(e) {
     }
 
     results = {}
-    for (let campus in rooms[day]) {
+    for (let d of ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']) {
+        for (let campus in rooms[d]) {
+            if (!(campus in results)) results[campus] = {};
+
+        }
+    }
+    for (let campus in rooms) {
         results[campus] = {};
-        for (let building in rooms[day][campus]) {
+        for (let building in rooms[campus]) {
             results[campus][building] = []
-            for (let roomNum in rooms[day][campus][building]) {
+            for (let roomNum in rooms[campus][building]) {
+                if (!(day in rooms[campus][building][roomNum])) {
+                    results[campus][building].push(roomNum);
+                    continue;
+                }
                 let available = true;
-                for (let [s, e] of rooms[day][campus][building][roomNum]) {
+                for (let [s, e] of rooms[campus][building][roomNum][day]) {
                     if (Math.max(start, s) <= Math.min(end, e)) {
                         available = false;
                         break;
