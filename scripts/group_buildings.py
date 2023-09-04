@@ -2,7 +2,7 @@ import json
 from collections import defaultdict
 from flatten_dict import unflatten
 
-times = json.load(open('../times.json'))
+times = json.load(open('../data/times.json'))
 by_building = defaultdict(set)
 
 for course in times.values():
@@ -19,4 +19,4 @@ for course in times.values():
 by_building = {k:sorted(list(by_building[k])) for k in sorted(by_building)}
 by_building = unflatten(by_building)
 
-json.dump(by_building, open('rooms.js', 'w'))
+json.dump(by_building, open('../javascript/rooms.js', 'w'))

@@ -1,6 +1,6 @@
 import json
 
-courses = json.load(open('courses.json'))
+courses = json.load(open('../data/courses.json'))
 condensed_courses = {}
 
 for course in courses:
@@ -33,4 +33,4 @@ for course in courses:
         temp['endMinute'] = em
         condensed_courses[course['title']].append(temp)
     
-json.dump(condensed_courses, open('times.json', 'w'))
+json.dump(condensed_courses, open('../data/times.json', 'w'))
